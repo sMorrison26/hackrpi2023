@@ -1,6 +1,27 @@
+const myForm = document.getElementById("check-password-form");
+
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent the default form submission
+      // Your form processing logic here
+      console.log("Form submitted");
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        handleSubmit(event); // Call your custom function
+      }
+    }
+
+    myForm.addEventListener("submit", handleSubmit); 
+    myForm.addEventListener("keypress", handleKeyPress); 
+
+
+
+
 function validatepassword(formObj) {
     let password = formObj.check-password.value;
     let finalAlert = "";
+    let isLong = 1;
     let containsUpper = 0;
     let containsLower = 0;
     let containsNumber = 0;
@@ -8,6 +29,7 @@ function validatepassword(formObj) {
 
     // Check password length
     if (password.length < 12) {
+        isLong = 0;
         finalAlert += "Password length must be greater than 12 characters.\n"
     }
 
@@ -35,6 +57,7 @@ function validatepassword(formObj) {
             containsSpecial = 1;
         }
     }
+
     
     if (containsLower == 0) {
         finalAlert += "Password must contain at least one lowercase character.\n";
@@ -59,6 +82,12 @@ function validatepassword(formObj) {
     } 
     else {
         alert(finalAlert);
+
+        if (isLong == 0) {
+            let toalert = "New password: ";
+            toalert += lengthenpassword(password);
+            alert(toalert);
+        }
         return false;
     }
 
@@ -83,7 +112,7 @@ async function fetchWordList() {
       return [];
     }
 }
-async function isCommonPassword(wordToCheck) {
+async function checkIfWordExists(wordToCheck) {
     const wordList = await fetchWordList();
   
     if (wordList.length === 0) {
