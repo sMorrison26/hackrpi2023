@@ -1,6 +1,6 @@
 function validatepassword(password) {
     let finalAlert = "";
-    let isLong = 0;
+    let isLong = 1;
     let containsUpper = 0;
     let containsLower = 0;
     let containsNumber = 0;
@@ -8,7 +8,7 @@ function validatepassword(password) {
 
     // Check password length
     if (password.length < 12) {
-        isLong = 1;
+        isLong = 0;
         finalAlert += "Password length must be greater than 12 characters.\n"
     }
 
@@ -76,7 +76,7 @@ function validatepassword(password) {
         let ret = password;
         const newcharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()-_+=|}]{[:;"/?>.<,\\\'';
         const len = newcharacters.length;
-        while (password.length < 12) {
+        while (ret.length < 12) {
             ret += newcharacters[Math.floor(Math.random() * len)];
         }
         return ret;
