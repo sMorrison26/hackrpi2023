@@ -1,5 +1,5 @@
 function validatepassword(formObj) {
-    var password = formObj.password.value;
+    var password = formObj.check-password.value;
     var finalAlert = "";
     var containsUpper = 0;
     var containsLower = 0;
