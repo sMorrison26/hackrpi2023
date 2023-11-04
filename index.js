@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const myForm = document.getElementById("check-password-form");
 
     function handleSubmit(event) {
@@ -20,6 +21,9 @@ const myForm = document.getElementById("check-password-form");
 
 function validatepassword(formObj) {
     let password = formObj.check-password.value;
+=======
+function validatepassword(password) {
+>>>>>>> Stashed changes
     let finalAlert = "";
     let containsUpper = 0;
     let containsLower = 0;
@@ -81,9 +85,22 @@ function validatepassword(formObj) {
         alert(finalAlert);
         return false;
     }
-
-
 }
+
+
+function lengthenpassword(password) {
+    let ret = password;
+    const newcharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()-_+=|}]{[:;"/?>.<,\\\'';
+    const len = newcharacters.length;
+    while (password.length < 12) {
+        ret += newcharacters[Math.floor(Math.random() * len)];
+    }
+    return ret;
+}
+
+
+
+
 
 async function fetchWordList() {
     try {
@@ -118,3 +135,4 @@ async function checkIfWordExists(wordToCheck) {
     }
   }
   
+
