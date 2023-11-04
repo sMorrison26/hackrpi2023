@@ -1,23 +1,3 @@
-const myForm = document.getElementById("check-password-form");
-
-    function handleSubmit(event) {
-      event.preventDefault(); // Prevent the default form submission
-      // Your form processing logic here
-      console.log("Form submitted");
-    }
-
-    function handleKeyPress(event) {
-      if (event.key === "Enter") {
-        handleSubmit(event); // Call your custom function
-      }
-    }
-
-    myForm.addEventListener("submit", handleSubmit); 
-    myForm.addEventListener("keypress", handleKeyPress); 
-
-
-
-
 function validatepassword(formObj) {
     let password = formObj.check-password.value;
     let finalAlert = "";
