@@ -1,15 +1,15 @@
 function validatepassword(formObj) {
-    let password = formObj.check-password.value;
+    let password = formObj.password.value;
     let finalAlert = "";
-    let isLong = 1;
-    let containsUpper = 0;
-    let containsLower = 0;
-    let containsNumber = 0;
-    let containsSpecial = 0;
+    let isLong = 0;             //string longer than 12 characters?
+    let containsUpper = 0;      //string contains upper case character?
+    let containsLower = 0;      //string contains loewer case character?
+    let containsNumber = 0;     //string contains number character?
+    let containsSpecial = 0;    //string contains special character?
 
     // Check password length
     if (password.length < 12) {
-        isLong = 0;
+        isLong = 1;
         finalAlert += "Password length must be greater than 12 characters.\n"
     }
 
@@ -38,7 +38,9 @@ function validatepassword(formObj) {
         }
     }
 
-    
+    if (isLong == 0){
+        finalAlert += "Password must contain at least one lowercase character.\n";
+    }
     if (containsLower == 0) {
         finalAlert += "Password must contain at least one lowercase character.\n";
     }
