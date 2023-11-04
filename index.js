@@ -1,16 +1,28 @@
-function validatepassword(formObj) {
+function resetWarningBlocks(){
+    let blocks = $("#check-section>div").children();
+    for (let i=0; i<blocks.length; i++){
+        if (!$(blocks[i]).hasClass("hidden")){
+            $(blocks[i]).addClass("hidden");
+        }
+    }
+}
+
+
+
+function validatePassword(formObj) {
     let password = formObj.password.value;
     let finalAlert = "";
-    let isLong = 0;             //string longer than 12 characters?
+    let isShort = 0;             //string longer than 12 characters?
     let containsUpper = 0;      //string contains upper case character?
     let containsLower = 0;      //string contains loewer case character?
     let containsNumber = 0;     //string contains number character?
     let containsSpecial = 0;    //string contains special character?
 
+    resetWarningBlocks();
+
     // Check password length
     if (password.length < 12) {
-        isLong = 1;
-        finalAlert += "Password length must be greater than 12 characters.\n"
+        isShort = 1;
     }
 
     // Loop through each character in the password
@@ -37,41 +49,59 @@ function validatepassword(formObj) {
             containsSpecial = 1;
         }
     }
-
-    if (isLong == 0){
-        finalAlert += "Password must contain at least one lowercase character.\n";
+    console.log(password);
+    if (isShort == 1){
+        // finalAlert += "Password must be at least 12 characters long.\n";
+        if ($("#valid-length").hasClass("hidden")){
+            console.log('heelo');
+            $("#valid-length").removeClass("hidden");
+        }
     }
     if (containsLower == 0) {
-        finalAlert += "Password must contain at least one lowercase character.\n";
+        // finalAlert += "Password must contain at least one lowercase character.\n";
+        if ($("#contains-lower").hasClass("hidden")){
+            console.log('heelo');
+            $("#contains-lower").removeClass("hidden");
+        }
     }
 
     if (containsUpper == 0) {
-        finalAlert += "Password must contain at least one uppercase character.\n";
+        // finalAlert += "Password must contain at least one uppercase character.\n";
+        if ($("#contains-upper").hasClass("hidden")){
+            console.log('heelo');
+            $("#contains-upper").removeClass("hidden");
+        }
     }
 
     if (containsNumber == 0) {
-        finalAlert += "Password must contain at least one number.\n";
+        // finalAlert += "Password must contain at least one number.\n";
+        if ($("#contains-number").hasClass("hidden")){
+            console.log('heelo');
+            $("#contains-number").removeClass("hidden");
+        }
     }
 
     if (containsSpecial == 0) {
-        finalAlert += "Password must contain at least one special character. (Not a letter or number)\n"
-    }
-
-    // Alert the final error message
-    if (finalAlert === "") {
-        alert("The password is valid.");
-        return true;
-    } 
-    else {
-        alert(finalAlert);
-
-        if (isLong == 0) {
-            let toalert = "New password: ";
-            toalert += lengthenpassword(password);
-            alert(toalert);
+        // finalAlert += "Password must contain at least one special character. (Not a letter or number)\n"
+        if ($("#contains-special").hasClass("hidden")){
+            console.log('heelo');
+            $("#contains-special").removeClass("hidden");
         }
-        return false;
     }
+    
+    // // Alert the final error message
+    // if (finalAlert === "") {
+    //     alert("The password is valid.");
+    // } 
+    // else {
+    //     alert(finalAlert);
+
+    //     // if (isShort == 1) {
+    //     //     let toalert = "New password: ";
+    //     //     toalert += lengthenpassword(password);
+    //     //     alert(toalert);
+    //     // }
+    // }
 
 
 }

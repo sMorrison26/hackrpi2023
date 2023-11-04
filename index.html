@@ -15,7 +15,7 @@
     <main class="bg-indigo-300 w-full h-full flex flex-col justify-around items-center">
       <section id="check-section" class="border border-black p-4 min-w-[50%]">
         <p class="text-2xl text-center mb-8">Check your password</p>
-        <form id="check-password-form" class="flex flex-col text-center" novalidate onsubmit="validatePassword(this);">
+        <form id="check-password-form" class="flex flex-col text-center" onsubmit="validatePassword(this);return false;">
           <label for="password" class="mb-2">Enter your password here:</label>
           <input type="text" id="password" name="password" placeholder="Password" class="text-black p-2 rounded"/>
         </form>
