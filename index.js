@@ -1,7 +1,8 @@
 function resetWarningBlocks(){
-    let blocks = $("#check-section>div").children();
+    let blocks = $("#check-section>div");
     for (let i=0; i<blocks.length; i++){
         if (!$(blocks[i]).hasClass("hidden")){
+            console.log('hi');
             $(blocks[i]).addClass("hidden");
         }
     }
