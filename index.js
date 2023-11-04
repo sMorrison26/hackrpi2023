@@ -89,6 +89,13 @@ function validatePassword(formObj) {
             $("#contains-special").removeClass("hidden");
         }
     }
+
+    if (checkIfWordExists(password)) {
+        if ($("#warning-box").hasClass("hidden")){
+            console.log('heelo');
+            $("#warning-box").removeClass("hidden");
+        }
+    }
     
     // // Alert the final error message
     // if (finalAlert === "") {
