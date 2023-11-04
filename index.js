@@ -52,12 +52,14 @@ function validatePassword(formObj) {
         if ($("#valid-length").hasClass("hidden")){
             $("#valid-length").removeClass("hidden");
         }
+        foundProblem = 1;
     }
     if (containsLower == 0) {
         // finalAlert += "Password must contain at least one lowercase character.\n";
         if ($("#contains-lower").hasClass("hidden")){
             $("#contains-lower").removeClass("hidden");
         }
+        foundProblem = 1;
     }
 
     if (containsUpper == 0) {
@@ -65,6 +67,7 @@ function validatePassword(formObj) {
         if ($("#contains-upper").hasClass("hidden")){
             $("#contains-upper").removeClass("hidden");
         }
+        foundProblem = 1;
     }
 
     if (containsNumber == 0) {
@@ -72,6 +75,7 @@ function validatePassword(formObj) {
         if ($("#contains-number").hasClass("hidden")){
             $("#contains-number").removeClass("hidden");
         }
+        foundProblem = 1;
     }
 
     if (containsSpecial == 0) {
@@ -79,12 +83,14 @@ function validatePassword(formObj) {
         if ($("#contains-special").hasClass("hidden")){
             $("#contains-special").removeClass("hidden");
         }
+        foundProblem = 1;
     }
     if (foundProblem == 0) {
         // finalAlert += "Password must contain at least one special character. (Not a letter or number)\n"
         if ($("#success").hasClass("hidden")){
             $("#success").removeClass("hidden");
         }
+        foundProblem = 1;
     }
     
 }
