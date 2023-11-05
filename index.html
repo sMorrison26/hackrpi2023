@@ -12,8 +12,8 @@
   </head> 
   <body class="flex flex-col justify-between h-screen text-white font-Inter">
     <nav class="bg-gray-500 w-full flex justify-center p-4 text-4xl">Password Analyzer</nav>
-    <main class="bg-indigo-300 w-full h-full flex flex-col justify-around items-center">
-      <section id="check-section" class="border border-black p-4 min-w-[50%]">
+    <main class="bg-indigo-300 w-full h-full flex flex-col items-center">
+      <section id="check-section" class=" w-3/4 mt-24">
         <p class="text-2xl text-center mb-8">Check your password</p>
         <form id="check-password-form" class="flex flex-col text-center" onsubmit="validatePassword(this);return false;">
           <label for="password" class="mb-2">Enter your password here:</label>
@@ -23,9 +23,9 @@
           <p class="font-bold">Great Work!</p>
           <p>Your password is strong</p>
         </div>
-        <div class="hidden backdrop:mt-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mt-4 mb-4" role="alert" id="warning-box">
-          <p class="font-bold">Critical!</p>
-          <p>Your password has been found in a common password list</p>
+        <div class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-2 mt-2 mb-2" role="alert" id="warning-box">
+          <p class="font-bold text-sm">Critical!</p>
+          <p class="text-sm">Your password has been found in a common password list</p>
         </div>
         <div class="hidden bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-2 mt-2" id="valid-length">
           <p class="font-bold text-sm">Warning!</p>

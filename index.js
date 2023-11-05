@@ -97,7 +97,6 @@ async function validatePassword(formObj) {
     console.log(wordExists)
     if (wordExists) {
         if ($("#warning-box").hasClass("hidden")){
-            console.log('heelo');
             $("#warning-box").removeClass("hidden");
         }
     }
