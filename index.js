@@ -9,7 +9,7 @@ function resetWarningBlocks(){
 
 
 
-function validatePassword(formObj) {
+async function validatePassword(formObj) {
     let password = formObj.password.value;
     let finalAlert = "";
     let isShort = 0;             //string longer than 12 characters?
@@ -93,7 +93,9 @@ function validatePassword(formObj) {
         foundProblem = 1;
     }
 
-    if (checkIfWordExists(password)) {
+    let wordExists = await checkIfWordExists(password);
+    console.log(wordExists)
+    if (wordExists) {
         if ($("#warning-box").hasClass("hidden")){
             console.log('heelo');
             $("#warning-box").removeClass("hidden");
